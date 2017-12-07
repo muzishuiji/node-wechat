@@ -38,15 +38,6 @@ function sign(ticket, url) {
     }
 }
 
-
-router.get('/movie', async (ctx, next) => {
-    var access_token = wechat.access_token;
-    var ticket = await wechat.fetchTicket(access_token);
-    
-    var params = sign(ticket.ticket, ctx.href);
-    ctx.body = ejs.render(tpl.temTpl, params);
-    return next;
-})
 router.get('/', async (ctx, next) => {
     const signature = ctx.query.signature || ''
     const nonce = ctx.query.nonce || ''
@@ -59,6 +50,14 @@ router.get('/', async (ctx, next) => {
 
     ctx.body = (sha === signature) ? echostr + '' : 'failed'
 
+})
+router.get('/movie', async (ctx, next) => {
+    var access_token = wechat.access_token;
+    var ticket = await wechat.fetchTicket(access_token);
+    
+    var params = sign(ticket.ticket, ctx.href);
+    ctx.body = ejs.render(tpl.temTpl, params);
+    return next;
 })
 router.post('/', async (ctx) => {
     //通过raw-body模块接收接口传过来的xml数据
