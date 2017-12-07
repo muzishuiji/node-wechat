@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>查电影</title>
+            <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
+            <style>
+                h2 {
+                    position: relative;
+                }
+                h2::after {
+                content: attr(data-text);
+                z-index: 10;
+                color: #e3e3e3;
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), color-stop(50%, rgba(0,0,255,1)), to(rgba(0,0,0,0)));}
+            </style>
+        </head>
+        <body>
+            <h2>我会渐变奥~</h2>
+            <h1>站点信息</h1>
+            <span id="hidden" style="display: none;">40283f825dccd60a015dccf5a8bd0005</span>
+            <p id="first">
+                <span>是否达标: </span><span id="isNormal"></span>
+            </p>
+            <p id="second">
+                <span>最新的小时剂量率的平均值: </span><span id="avg"></span>
+            </p>
+            <p id="second">
+                <span>距离当前24小时的获取率: </span><span id="rate"></span>
+            </p>
+            <script src="https://cdn.bootcss.com/zepto/1.1.7/zepto.js"></script>
+            <script>
+                // document.addEventListener('DOMContentLoaded', function(){ 
+                //     var stationId = $('#hidden').text()
+                //     $.ajax({
+                //         type: 'post',
+                //         data: {},
+                //         url: 'http://localhost:8081/home/getDoseRateByStationId?stationId=' + stationId,
+                //         success: function (data) {
+                //             if(data.isNormal == true) {
+                //                 $('#isNormal').text('达标');
+                //             } else{
+                //                 $('#isNormal').text('不达标');
+                //             }
+                //             $('#avg').text(data.avg);
+                //             $('#rate').text(data.rate);
+                //         }
+                //     })
+                // }, false)
+                function Instance() {
+                    this.name = 'sfdfsd';
+                    this.good = 'dsfdsfsdf';
+                    this.arguments = [1,2,3]
+                }
+                Instance.prototype = {
+                    funFirst: function () {
+                        console.log('sdfsdfsd')
+                    },
+                    funSecond: function () {
+                        console.log('second')
+                    },
+                    funThird: function () {
+                        console.log('third')
+                    },
+                }
+                var obj1 = new Instance()
+                console.log(obj1)
+            </script>
+        </body>
+    </html>
