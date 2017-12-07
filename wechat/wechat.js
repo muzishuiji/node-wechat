@@ -156,7 +156,6 @@ Wechat.prototype = {
                                 console.error(err)
                                 reject(err)
                             } else {
-                                console.log('写入成功')
                                 resolve(responseData)
                             }
                         }) 
