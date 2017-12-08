@@ -1,10 +1,8 @@
 const path = require('path')
-
-const wechat_file = path.join(__dirname, './accessToken.txt')
-const ticket_file = path.join(__dirname, './ticket.txt')
+const ticket_file = path.join(__dirname, '../util/ticket.txt')
 const util = require('../util/accessTxt')
 const config = {
-    port: '8080',
+    port: '8000',
 
     appID:'wx3074860ea77cc336',
     appSecret:'8445cfbec50cfa2b771d49b3c6eb986d',

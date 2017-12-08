@@ -1,4 +1,4 @@
-const koa = require('koa')             //koa模块
+const koa = require('koa')
 const app = new koa()
 const router = require('./router/index');
 const config = require('./config/config')

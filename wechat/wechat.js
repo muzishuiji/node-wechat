@@ -1,12 +1,13 @@
 'use strict'
-var Promise = require('bluebird')
+const Promise = require('bluebird')
 //该操作可以将原本的request方法封装成一个promise函数
-var request = Promise.promisify(require('request'))
-var util = require('../util/tpl')
-var _ = require('lodash')
-var fs = require('fs')
+const request = Promise.promisify(require('request'))
+const util = require('../util/tpl')
+const _ = require('lodash')
+const fs = require('fs')
 const path = require('path')
 const wechat_file = path.join(__dirname, '../util/accessToken.txt')
+
 var prefix = 'https://api.weixin.qq.com/cgi-bin/'
 var api = {
    searchMovie: 'https://api.douban.com/v2/movie/search?',                      //搜索电影
