@@ -9,6 +9,7 @@
   "author": "2510909248@qq.com",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.17.1",
     "bluebird": "^3.5.1",
     "crypto": "^1.0.1",
     "ejs": "^2.5.7",

@@ -64,7 +64,7 @@ module.exports = {
              {	
                 "type":"view",
                 "name":"语音搜索",
-                "url":"http://66f3c50e.ngrok.io/movie"
+                "url":"http://801c8dca.ngrok.io/movie"
              }
             ] 
            

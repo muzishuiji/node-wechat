@@ -51,13 +51,12 @@ router.get('/', async (ctx, next) => {
     ctx.body = (sha === signature) ? echostr + '' : 'failed'
 
 })
-router.get('/movie', async (ctx, next) => {
+router.get('/movie', async (ctx) => {
     var access_token = wechat.access_token;
     var ticket = await wechat.fetchTicket(access_token);
     
     var params = sign(ticket.ticket, ctx.href);
     ctx.body = ejs.render(tpl.temTpl, params);
-    return next;
 })
 router.post('/', async (ctx) => {
     //通过raw-body模块接收接口传过来的xml数据
@@ -68,7 +67,6 @@ router.post('/', async (ctx) => {
     ctx.status = 200;
     ctx.type = 'application/xml';
     ctx.body = reply;
-    return;
 })
 
 module.exports = router

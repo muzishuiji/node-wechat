@@ -71,31 +71,31 @@ var temTpl = heredoc(function () {/*
 						imgUrl: '',
 						type: 'link',
 						success: function () {
-							window.alert('分享成功!')
+							window.alert('分享成功!');
 						},
 						cancel: function () {
-							window.alert('分享失败!')
+							window.alert('分享失败!');
 						} 
 					}
 					wx.onMenuShareAppMessage(shareContent)
 					wx.checkJsApi({
 						jsApiList: ['onVoiceRecordEnd'],
 						success: function (res) {
-							alert(res)
+							alert(res);
 						}
 					})
-					var slides={}  
-					var isRecording = false
+					var slides={};
+					var isRecording = false;
 					//以幻灯片的方式播放图片
 					$('#poster').on('click', function () {
-						wx.previewImage(slides)
+						wx.previewImage(slides);
 					})
 					$('#luyin').on('click', function () {
 						if(!isRecording) {
-							isRecording = true
+							isRecording = true;
 							wx.startRecord({
 								cancel: function () {
-									alert('那就不能搜罗奥!')
+									alert('那就不能搜罗奥!');
 								}
 							})
 							return
@@ -104,43 +104,44 @@ var temTpl = heredoc(function () {/*
 						
 						wx.stopRecord({
 							success: function (res) {
-								var localId = res.localId
+								var localId = res.localId;
+								alert(localId);
 								wx.translateVoice({
 									localId: localId,
 									isShowProgressTips: 1,
 									success: function (res) {
-										var result = res.translateResult
+										var result = res.translateResult;
 										$.ajax({
 											type: 'get',
 											url: 'https://api.douban.com/v2/movie/search?q='+ result.substring(0, result.length - 1),
 											dataType:'jsonp',
 											success: function (data) {
-												var subject = data.subjects[0]
-												$('#title').html('电影名称: ' + subject.title)
-												console.log(subject.title)
-												$('#director').html('导演: ' + subject.directors[0].name)
-												$('#year').html('上映年份: ' + subject.year)
-												$('#poster').html('<p>宣传海报: </p>' + '<img src="'+ subject.images.large +'" />')
+												var subject = data.subjects[0];
+												$('#title').html('电影名称: ' + subject.title);
+												console.log(subject.title);
+												$('#director').html('导演: ' + subject.directors[0].name);
+												$('#year').html('上映年份: ' + subject.year);
+												$('#poster').html('<p>宣传海报: </p>' + '<img src="'+ subject.images.large +'" />');
 												shareContent = {
 													title: subject.title,
 													desc: '我搜出来了 '+ subject.title,
-													link: 'http://e77292a6.ngrok.io/movie',
+													link: 'http://801c8dca.ngrok.io/movie',
 													imgUrl: subject.images.large,
 													type: 'link',
 													success: function () {
-														window.alert('分享成功!')
+														window.alert('分享成功!');
 													},
 													cancel: function () {
-														window.alert('分享失败!')
+														window.alert('分享失败!');
 													} 
 												}
-												wx.onMenuShareAppMessage(shareContent)
+												wx.onMenuShareAppMessage(shareContent);
 												slides = {
 													current: subject.images.large,
 													urls: []
 												}
 												data.subjects.forEach(function (item) {
-													slides.urls.push(item.images.large)
+													slides.urls.push(item.images.large);
 												})
 												
 											}

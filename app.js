@@ -9,5 +9,5 @@ app
 
 
 app.listen(config.port, function () {
-    console.log('this server is listening at port 8080');
+    console.log('this server is listening at port 8000');
 });
