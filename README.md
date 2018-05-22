@@ -1,4 +1,4 @@
-# cnode-wechat
+# node-wechat
 nodejs 开发微信公众号
 
 文档中的reply.js文件中的有些图片和素材的回复因为是使用的临时素材的media_id,所以你在克隆我的代码的时候可能这个id已经过期了,
