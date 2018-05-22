@@ -223,7 +223,7 @@ exports.reply = async function(obj) {
             '</xml>';
         } else if(content === 7) {   //获取消息模板
             var data = await wechat.getMessTemplate();
-            console.log(data.primary_industry);
+            console.log(data.primary_industry); 
             console.log(data.secondary_industry);
             reply = '<xml>' +
             '<ToUserName><![CDATA['+ message.FromUserName +']]></ToUserName>' +
@@ -330,7 +330,7 @@ exports.reply = async function(obj) {
             // console.log("media_id_3", 'OWE7rxGe2WFqPfMjEbr-DX7hzGCn0M7LcCzjjcExp1-fSybgA83DJ9onEhrGLs_p')
             // console.log("media_id_4", 'e-JvUo2XEh7h3xdqMPm3M4BCcdmvNH-l1KCgUN1bzS9D9Y_PoRB5OmBl8GifDUOZ')
             // var material = yield wechat.fetchMaterial('dmsiJyr8TRu17slpfH75LIvLi8Wy7kvCDO57R-R62HesMIkUZUNF7DSuA92f8HBK', 'image')
-            console.log(material);
+            // console.log(material);
             reply = '<xml>' +
             '<ToUserName><![CDATA['+ message.FromUserName +']]></ToUserName>' +
             '<FromUserName><![CDATA['+ message.ToUserName +']]></FromUserName>' +
